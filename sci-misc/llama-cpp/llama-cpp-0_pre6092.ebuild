@@ -80,7 +80,6 @@ src_configure() {
 		-DGGML_OPENCL=$(usex opencl ON OFF)
 		-DGGML_OPENMP=$(usex openmp ON OFF)
 		-DGGML_VULKAN=$(usex vulkan ON OFF)
-		-DCMAKE_CUDA_ARCHITECTURES="native"
 
 		# avoid clashing with whisper.cpp
 		-DCMAKE_INSTALL_LIBDIR="${EPREFIX}/usr/$(get_libdir)/llama.cpp"
@@ -100,6 +99,9 @@ src_configure() {
 	fi
 
 	if use cuda; then
+		mycmakeargs+=(
+			-DCMAKE_CUDA_ARCHITECTURES="native"
+		)
 		local -x CUDAHOSTCXX="$(cuda_gccdir)"
 		# tries to recreate dev symlinks
 		cuda_add_sandbox
