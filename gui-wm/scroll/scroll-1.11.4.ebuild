@@ -115,6 +115,6 @@ pkg_postinst() {
 	echo
 	einfo "For a list of additional addons and tools usable with sway please"
 	einfo "visit the official wiki at:"
-	einfo "https://github.com/dawsers/scroll/wiki/Useful-add-ons-for-sway"
+	einfo "https://github.com/swaywm/sway/wiki/Useful-add-ons-for-sway"
 	einfo "Please note that some of them might not (yet) available on gentoo"
 }
